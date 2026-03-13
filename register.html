@@ -6,14 +6,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>NFC電子名片註冊</title>
+<title>NFC名片註冊</title>
 
 <style>
 
 body{
 font-family:sans-serif;
 background:#f2f3f7;
-margin:0;
 padding:20px;
 }
 
@@ -26,29 +25,21 @@ border-radius:16px;
 box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
-h2{
-text-align:center;
-margin-bottom:20px;
-}
-
 input{
 width:100%;
 padding:12px;
 margin:8px 0;
 border:1px solid #ddd;
 border-radius:8px;
-font-size:16px;
 }
 
 button{
 width:100%;
 padding:14px;
-margin-top:12px;
-border:none;
-border-radius:8px;
 background:black;
 color:white;
-font-size:16px;
+border:none;
+border-radius:8px;
 }
 
 .result{
@@ -66,14 +57,14 @@ border-radius:8px;
 
 <div class="card">
 
-<h2>申請電子名片</h2>
+<h2>建立電子名片</h2>
 
 <input id="name" placeholder="姓名">
 <input id="email" placeholder="Email">
 
 <button onclick="register()">建立名片</button>
 
-<div class="result" id="result"></div>
+<div id="result" class="result"></div>
 
 </div>
 
@@ -85,7 +76,6 @@ function register(){
 
 alert("按鈕正常")
 
-}
 fetch(API,{
 method:"POST",
 body:JSON.stringify({
@@ -100,12 +90,9 @@ email:email.value
 .then(d=>{
 
 result.innerHTML=`
-你的名片建立成功<br><br>
-
-ID : ${d.id}<br>
-KEY : ${d.key}<br><br>
-
-請保存此資料登入後台
+建立成功<br>
+ID:${d.id}<br>
+KEY:${d.key}
 `
 
 })
