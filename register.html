@@ -74,8 +74,6 @@ const API="https://script.google.com/macros/s/AKfycbyrJD_CpQ4b1GMbslIEW5QJPELkJC
 
 function register(){
 
-alert("按鈕正常")
-
 fetch(API,{
 method:"POST",
 body:JSON.stringify({
@@ -90,10 +88,18 @@ email:email.value
 .then(d=>{
 
 result.innerHTML=`
-建立成功<br>
-ID:${d.id}<br>
-KEY:${d.key}
+建立成功<br><br>
+
+ID : ${d.id}<br>
+KEY : ${d.key}<br><br>
+
+請保存此資料登入後台
 `
+
+})
+.catch(err=>{
+
+result.innerHTML="API連接失敗"
 
 })
 
