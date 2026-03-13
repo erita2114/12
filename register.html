@@ -76,12 +76,14 @@ function register(){
 
 fetch(API,{
 method:"POST",
+mode:"no-cors",
+headers:{
+"Content-Type":"application/json"
+},
 body:JSON.stringify({
-
 action:"register",
 name:name.value,
 email:email.value
-
 })
 })
 .then(r=>r.json())
